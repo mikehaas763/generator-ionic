@@ -1,8 +1,8 @@
 {
   "name": "generator-ionic",
   "version": "0.0.0",
-  "description": "Yeoman generator",
-  "license": "MIT",
+  "description": "Yeoman generator for the Ionic Framework",
+  "license": "BSD-3",
   "main": "app/index.js",
   "repository": "mikehaas763/generator-ionic",
   "author": {
@@ -20,7 +20,8 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "ionic"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
