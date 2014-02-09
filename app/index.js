@@ -11,7 +11,7 @@ var IonicGenerator = yeoman.generators.Base.extend({
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        this.npmInstall();
+//        this.npmInstall();
       }
     });
   },
@@ -40,14 +40,11 @@ var IonicGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
+    this.mkdir('platforms');
+    this.mkdir('plugins');
   },
 
-  projectfiles: function () {
+  projectFiles: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
   }
