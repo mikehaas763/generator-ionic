@@ -26,14 +26,20 @@ var IonicGenerator = yeoman.generators.Base.extend({
     console.log(chalk.magenta('You\'re using the fantastic Ionic generator.'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'appName',
+      message: 'What is the name of your mobile app?',
+      default: 'StarterApp'
+    }, {
+      type: 'input',
+      name: 'appId',
+      message: 'What ID would you like to give your app?',
+      default: 'com.ionicframework.starterapp'
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.appName = props.appName;
+      this.appId = props.appId;
 
       done();
     }.bind(this));
@@ -42,6 +48,9 @@ var IonicGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('platforms');
     this.mkdir('plugins');
+    this.mkdir('.cordova');
+
+    this.template('.cordova/_config.json', '.cordova/config.json');
   },
 
   projectFiles: function () {
