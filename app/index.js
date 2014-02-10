@@ -49,8 +49,9 @@ var IonicGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('platforms');
     this.mkdir('plugins');
-    this.mkdir('www');
     this.mkdir('.cordova');
+
+    this.directory('www', 'www');
 
     this.copy('bowerrc', '.bowerrc');
 
