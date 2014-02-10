@@ -1,4 +1,4 @@
 {
     "id": "<%= appId %>",
-    "name": "<%= _.slugify(appName) %>"
+    "name": "<%= appName %>"
 }

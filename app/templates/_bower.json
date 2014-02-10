@@ -1,6 +1,7 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= appName %>",
+  "private": true,
+  "dependencies": {
+    "ionic": "latest"
+  }
 }
-

@@ -10,9 +10,10 @@ var IonicGenerator = yeoman.generators.Base.extend({
     this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
 
     this.on('end', function () {
-      if (!this.options['skip-install']) {
-//        this.npmInstall();
-      }
+      this.installDependencies({
+        skipInstall: this.options['skip-install'],
+        npm: false
+      });
     });
   },
 
@@ -48,9 +49,13 @@ var IonicGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('platforms');
     this.mkdir('plugins');
+    this.mkdir('www');
     this.mkdir('.cordova');
 
+    this.copy('bowerrc', '.bowerrc');
+
     this.template('.cordova/_config.json', '.cordova/config.json');
+    this.template('_bower.json', 'bower.json');
   },
 
   projectFiles: function () {
