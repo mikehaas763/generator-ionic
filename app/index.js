@@ -57,6 +57,7 @@ var IonicGenerator = yeoman.generators.Base.extend({
 
     this.template('.cordova/_config.json', '.cordova/config.json');
     this.template('_bower.json', 'bower.json');
+    this.template('_config.xml', 'www/config.xml');
   },
 
   projectFiles: function () {
