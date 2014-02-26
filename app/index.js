@@ -3,6 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var cordovaCli = require('cordova');
 
 
 var IonicGenerator = yeoman.generators.Base.extend({
@@ -58,6 +59,13 @@ var IonicGenerator = yeoman.generators.Base.extend({
     this.template('.cordova/_config.json', '.cordova/config.json');
     this.template('_bower.json', 'bower.json');
     this.template('_config.xml', 'www/config.xml');
+  },
+
+  defaultPlugins: function () {
+    // TODO: Move this function into a new require module, possibly as a type
+    cordovaCli.plugin('add', 'org.apache.cordova.device');
+    cordovaCli.plugin('add', 'org.apache.cordova.console');
+    cordovaCli.plugin('add', 'org.apache.cordova.statusbar');
   },
 
   projectFiles: function () {
