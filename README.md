@@ -2,6 +2,14 @@
 
 > [Yeoman](http://yeoman.io) generator
 
+## Development Status
+
+### Phase 1 - end of March (in progress)
+In this phase the focus is on mimicking the functionality that the current Ionic CLI has. As it makes sense, more functionality may be implemented too.
+
+### Phase 2 - end of April
+The focus here will be on providing an awesome default sample app. It will need to be based on the best practices of AngularJS application development and structure.
+
 
 ## Getting Started
 
