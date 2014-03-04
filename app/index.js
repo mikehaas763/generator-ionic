@@ -3,6 +3,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var CordovaPluginInstaller = require('./scaffolding/cordova-plugin-installer.js');
+var CordovaPlatformInstaller = require('./scaffolding/cordova-platform-installer.js');
 
 
 var IonicGenerator = yeoman.generators.Base.extend({
@@ -26,6 +27,8 @@ var IonicGenerator = yeoman.generators.Base.extend({
     // replace it with a short and sweet description of your generator
     console.log(chalk.magenta('You\'re using the fantastic Ionic generator.'));
 
+    var platformChoices = new CordovaPlatformInstaller().getCompatiblePlatforms();
+
     var prompts = [{
       type: 'input',
       name: 'appName',
@@ -36,6 +39,11 @@ var IonicGenerator = yeoman.generators.Base.extend({
       name: 'appId',
       message: 'What ID would you like to give your app?',
       default: 'com.ionicframework.starterapp'
+    }, {
+      type: 'checkbox',
+      name: 'platforms',
+      message: 'Would you like to add any of these Cordova platforms?',
+      choices: platformChoices
     }];
 
     this.prompt(prompts, function (props) {
