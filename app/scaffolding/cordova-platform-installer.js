@@ -1,13 +1,19 @@
 'use strict';
 var os = require('os');
 var cordova = require('cordova');
+var NotArrayException = require('../exceptions/not-array-exception');
 
 function CordovaPlatformInstaller() {
-  this.platformsToInstall = [];
 }
 
-CordovaPlatformInstaller.prototype.install = function () {
+CordovaPlatformInstaller.prototype.install = function (platforms) {
+  if (!Array.isArray(platforms)) {
+    throw new NotArrayException('The list of platforms you pass to CordovaPlatformInstaller.install() should be an array.');
+  }
 
+  platforms.forEach(function (platform) {
+    cordova.platform('add', platform);
+  });
 };
 
 /**

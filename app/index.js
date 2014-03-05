@@ -49,6 +49,7 @@ var IonicGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
       this.appId = props.appId;
+      this.platforms = props.platforms;
 
       done();
     }.bind(this));
@@ -70,6 +71,8 @@ var IonicGenerator = yeoman.generators.Base.extend({
 
   scaffoldCordova: function () {
     new CordovaPluginInstaller().installDefaults();
+    // todo: because of the async nature of these methods, need to make sure the project folder is scaffolded before adding platforms
+    new CordovaPlatformInstaller().install(this.platforms);
   },
 
   projectFiles: function () {
